@@ -74,7 +74,7 @@ public abstract class Vehicule extends JPanel
 		}
 		
 		public void stop(){
-		    dy=0;
+		    timer.stop();
 		}
 		
 		
