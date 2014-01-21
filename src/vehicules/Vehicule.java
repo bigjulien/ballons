@@ -17,6 +17,7 @@ public abstract class Vehicule extends JPanel
 	    private int x=25,y=Cadre.SIZEH,vitesse;
 	    private String lettre;
 	    private BufferedImage image;
+	    private int dy=5;
 	    
 	    public Vehicule(String lettre)
 	    {
@@ -28,7 +29,7 @@ public abstract class Vehicule extends JPanel
 	    {
 	    public void actionPerformed(ActionEvent e)
 	        {
-	            y -= 5;
+	            y -= dy;
 	            repaint();
 	        }
 	    }
@@ -69,5 +70,10 @@ public abstract class Vehicule extends JPanel
 			timer = new Timer(vitesse, new TimerListener());
 			timer.start();	
 		}
+		
+		public void stop(){
+		    dy=0;
+		}
+		
 		
 }
