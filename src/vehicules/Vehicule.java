@@ -24,6 +24,10 @@ public abstract class Vehicule extends JPanel
 	    	
 	        this.lettre = lettre;
 	    }
+	    
+	    public String getLettre(){
+	        return lettre;
+	    }
 
 	    private class TimerListener implements ActionListener
 	    {
@@ -77,5 +81,8 @@ public abstract class Vehicule extends JPanel
 		    timer.stop();
 		}
 		
+		public Timer getTimer(){
+		    return timer;
+		}
 		
 }

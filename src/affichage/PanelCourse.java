@@ -1,6 +1,8 @@
 package affichage;
 
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -24,6 +26,14 @@ public class PanelCourse extends JPanel {
         instanciateArray();
         instanciatePanels();
         generalStart();
+     
+        
+        KeyListener listener = new MyKeyListener(this);
+        addKeyListener(listener);
+        setFocusable(true);
+    }
+    public  ArrayList<Vehicule> getCarList(){
+        return carList;
     }
     
     public void instanciateArray (){
@@ -59,8 +69,10 @@ public class PanelCourse extends JPanel {
 
     public String randomLetter(){
         Random r = new Random();
-        char c = (char) (r.nextInt(26) + 'a');
+        char c = (char) (r.nextInt(26) + 'A');
         return Character.toString(c);
     }
+
+
 
 }
