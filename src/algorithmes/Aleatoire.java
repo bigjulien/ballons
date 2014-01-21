@@ -9,9 +9,9 @@ public class Aleatoire {
         return Character.toString(c);
     }
     
-    public static int randomColumn(){
+    public static boolean randomColumn(){
         Random r = new Random();
-        int i = r.nextInt(1);
+        boolean i = r.nextBoolean();
         return i;
     }
     
