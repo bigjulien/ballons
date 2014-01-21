@@ -85,4 +85,11 @@ public abstract class Vehicule extends JPanel
 		    return timer;
 		}
 		
+		public void explose()
+		{
+			setImage("voitures/explosion.png");
+			timer.stop();
+			
+		}
+		
 }
