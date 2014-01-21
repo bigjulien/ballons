@@ -10,5 +10,4 @@ private static final String lien = "voitures/campion.png";
         setImage(lien);
         go(vitesse);
     }
-
 }
