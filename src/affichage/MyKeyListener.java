@@ -5,14 +5,16 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import Course.PanelCourseActionManager;
 import vehicules.Vehicule;
 
 public class MyKeyListener implements KeyListener {
 
     private PanelCourse pC;
-    
+    private PanelCourseActionManager Actions;
     public MyKeyListener (PanelCourse pC){
         this.pC=pC;
+        Actions = new PanelCourseActionManager (pC);
     }
     
     @Override
@@ -29,17 +31,10 @@ public class MyKeyListener implements KeyListener {
     
     @Override
     public void keyTyped(KeyEvent arg0) {
-            ArrayList<Vehicule> carList =pC.getCarList();
-            Iterator<Vehicule> it = carList.iterator();
-            
-            while (it.hasNext()) {
-                   Vehicule s = it.next();
-                   if(arg0.getKeyChar()==s.getLettre().toLowerCase().charAt(0))
-                       if (s.getTimer().isRunning())
-                           s.stop();
-                       else
-                           s.restart();
-            }
+            char c = arg0.getKeyChar();
+            Actions.stopCarsWithLetter(c);
+                   
+             
            
         }
     
