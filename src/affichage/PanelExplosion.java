@@ -11,10 +11,8 @@ public class PanelExplosion extends JPanel{
 		
 	public PanelExplosion(){	    
 	    setLayout(new GridLayout(1,GRIDNB));	    
-	    Vehicule v= new VoitureRouge("A");
-	    add(v);
-	    v.go();
-	    Aleatoire.randomColumn();
+	    
+	    
 	    add(new VoitureRouge("A"));
 	    add(new VoitureVerte("A"));
 	    add(new VoitureRouge("A"));
@@ -29,7 +27,13 @@ public class PanelExplosion extends JPanel{
 	{
 		for(int i =0; i<GRIDNB;i++)
 		{
-			if()
+			if(Aleatoire.randomColumn())
+			{
+				String lettre = Aleatoire.randomLetter();
+				Vehicule v= new VoitureRouge(lettre);
+			    add(v);
+			    v.go();
+			}
 		}
 		
 	}
