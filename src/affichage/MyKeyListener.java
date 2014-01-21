@@ -36,12 +36,14 @@ public class MyKeyListener implements KeyListener {
                    Vehicule s = it.next();
                    if(arg0.getKeyChar()==s.getLettre().toLowerCase().charAt(0))
                        if (s.getTimer().isRunning())
-                           s.getTimer().stop();
+                           s.stop();
                        else
                            s.restart();
             }
            
         }
+    
+    
 
     
     

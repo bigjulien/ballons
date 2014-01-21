@@ -1,6 +1,8 @@
 package affichage;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import vehicules.Camion;
 import vehicules.GrosCamion;
@@ -17,10 +20,10 @@ import vehicules.VoitureJaune;
 import vehicules.VoitureRouge;
 import vehicules.VoitureVerte;
 
-public class PanelCourse extends JPanel {
+public class PanelCourse extends JPanel implements ActionListener {
 
     private ArrayList<Vehicule> carList = new ArrayList();
-
+    private Timer timer;
     public PanelCourse (){
         setLayout(new GridLayout(1,10));
         instanciateArray();
@@ -31,6 +34,7 @@ public class PanelCourse extends JPanel {
         KeyListener listener = new MyKeyListener(this);
         addKeyListener(listener);
         setFocusable(true);
+        
     }
     public  ArrayList<Vehicule> getCarList(){
         return carList;
@@ -47,6 +51,8 @@ public class PanelCourse extends JPanel {
         carList.add(new VoitureBlanche(randomLetter()));
         carList.add(new VoitureBlanche(randomLetter()));
         carList.add(new VoitureRouge(randomLetter()));
+        timer = new Timer(100,this);
+        timer.start();
     }
     
     public void instanciatePanels(){
@@ -72,6 +78,20 @@ public class PanelCourse extends JPanel {
         char c = (char) (r.nextInt(26) + 'A');
         return Character.toString(c);
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Iterator<Vehicule> it = carList.iterator();
+        
+        while (it.hasNext()) {
+               Vehicule s = it.next();
+               if(s.outOfWindow())
+                   System.out.println("vehicule sorti");
+         
+        }
+       
+    }
+    
 
 
 

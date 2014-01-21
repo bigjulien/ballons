@@ -9,7 +9,7 @@ import javax.swing.*;
 
 import affichage.Cadre;
 
-public abstract class Vehicule extends JPanel
+public abstract class Vehicule extends JPanel implements ActionListener
 {
 	
 		private static final long serialVersionUID = 1L;
@@ -29,14 +29,13 @@ public abstract class Vehicule extends JPanel
 	        return lettre;
 	    }
 
-	    private class TimerListener implements ActionListener
-	    {
+	    
 	    public void actionPerformed(ActionEvent e)
 	        {
 	            y -= dy;
 	            repaint();
 	        }
-	    }
+	    
 
 	    @Override
 	    protected void paintComponent(Graphics g)
@@ -70,7 +69,7 @@ public abstract class Vehicule extends JPanel
 		
 		protected void setVitesse (int vitesse){
 		    this.vitesse = vitesse;   
-            timer = new Timer(vitesse, new TimerListener());
+            timer = new Timer(vitesse, this);
 		}
 		
 		public void go() {
@@ -92,7 +91,7 @@ public abstract class Vehicule extends JPanel
 		}
 		
 		public boolean outOfWindow (){
-		    return y<(this.getHeight()+image.getHeight());
+		    return y<(-image.getHeight());
 		}
 		
 		public void restart (){
