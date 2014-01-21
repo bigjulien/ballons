@@ -15,7 +15,7 @@ public class Cadre extends JFrame{
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("Traffic");
 		
-		FenetrePpaleExplosion f = new FenetrePpaleExplosion();
+		PanelExplosion f = new PanelExplosion();
 		add(f);
 	}
 }

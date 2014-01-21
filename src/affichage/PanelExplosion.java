@@ -4,11 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import vehicules.*;
 
-public class FenetrePpaleExplosion extends JPanel{
+public class PanelExplosion extends JPanel{
 
 	private static final long serialVersionUID = 1L;	
 		
-	public FenetrePpaleExplosion(){	    
+	public PanelExplosion(){	    
 	    setLayout(new GridLayout(1,10));	    
 	    add(new VoitureRouge("A"));
 	    add(new VoitureRouge("A"));
