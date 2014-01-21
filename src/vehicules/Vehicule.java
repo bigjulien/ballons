@@ -63,11 +63,13 @@ public abstract class Vehicule extends JPanel
 		protected int getVitesse() {
 			return vitesse;
 		}
-
+		
+		protected void setVitesse (int vitesse){
+		    this.vitesse = vitesse;   
+            timer = new Timer(vitesse, new TimerListener());
+		}
+		
 		protected void go(int vitesse) {
-			this.vitesse = vitesse;	
-			
-			timer = new Timer(vitesse, new TimerListener());
 			timer.start();	
 		}
 		

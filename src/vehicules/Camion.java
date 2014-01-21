@@ -8,6 +8,6 @@ private static final String lien = "voitures/campion.png";
     public Camion(String lettre) {
         super(lettre);
         setImage(lien);
-        go(vitesse);
+        setVitesse(vitesse);
     }
 }

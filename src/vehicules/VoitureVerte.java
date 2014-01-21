@@ -7,6 +7,6 @@ public class VoitureVerte extends Vehicule{
 	public VoitureVerte(String lettre) {
 		super(lettre);
 		setImage(lien);
-		go(vitesse);
+		setVitesse(vitesse);
 	}	
 }
