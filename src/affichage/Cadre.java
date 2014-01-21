@@ -16,6 +16,7 @@ public class Cadre extends JFrame{
 	    this.setTitle("Traffic");
 		
 		PanelExplosion f = new PanelExplosion();
-		add(f);
+		PanelCourse c = new PanelCourse();
+		add(c);
 	}
 }

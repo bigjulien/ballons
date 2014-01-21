@@ -1,11 +1,10 @@
 package vehicules;
 
-public class Camion extends Vehicule{
-
+public class VoitureBlanche extends Vehicule {
 private static final long serialVersionUID = 1L;
 private static final int vitesse = 60;
-private static final String lien = "voitures/camion.png";
-    public Camion(String lettre) {
+private static final String lien = "voitures/blanc.png";
+    public VoitureBlanche(String lettre) {
         super(lettre);
         setImage(lien);
         setVitesse(vitesse);

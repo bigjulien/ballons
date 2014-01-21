@@ -56,7 +56,7 @@ public abstract class Vehicule extends JPanel
 			}
 			catch(Exception e)
 			{
-				System.out.println("Fichier manquant ! ");
+				System.out.println("Fichier"+image+" manquant ! ");
 			}
 		}
 
@@ -69,7 +69,7 @@ public abstract class Vehicule extends JPanel
             timer = new Timer(vitesse, new TimerListener());
 		}
 		
-		protected void go(int vitesse) {
+		public void go() {
 			timer.start();	
 		}
 		
