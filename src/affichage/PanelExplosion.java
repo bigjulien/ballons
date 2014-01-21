@@ -10,8 +10,10 @@ public class PanelExplosion extends JPanel{
 		
 	public PanelExplosion(){	    
 	    setLayout(new GridLayout(1,10));	    
-	    add(new VoitureRouge("A"));
-	    add(new VoitureRouge("A"));
+	    Vehicule v= new VoitureRouge("A");
+	    add(v);
+	    v.go();
+	    randomColumn()
 	    add(new VoitureRouge("A"));
 	    add(new VoitureVerte("A"));
 	    add(new VoitureRouge("A"));

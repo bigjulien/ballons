@@ -17,6 +17,6 @@ public class Cadre extends JFrame{
 		
 		PanelExplosion f = new PanelExplosion();
 		PanelCourse c = new PanelCourse();
-		add(c);
+		add(f);
 	}
 }
