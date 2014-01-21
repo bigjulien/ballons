@@ -81,18 +81,30 @@ public class PanelCourse extends JPanel implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        Iterator<Vehicule> it = carList.iterator();
         
-        while (it.hasNext()) {
-               Vehicule s = it.next();
-               if(s.outOfWindow())
+        for (int i=0; i<carList.size();i++){
+               if(carList.get(i).outOfWindow()){
                    System.out.println("vehicule sorti");
+                   this.remove(carList.get(i));
+                   carList.set(i, new VoitureBlanche("A"));
+                   this.add(carList.get(i),i);
+                   carList.get(i).go();
+                   this.invalidate();
+                   this.validate();
+                   repaint();
+               }
          
         }
        
+ 
     }
     
 
 
 
 }
+
+
+
+
+
