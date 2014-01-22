@@ -43,7 +43,7 @@ public class PanelGenerique extends JPanel implements ActionListener{
     
     public void instanciateArray (){
 		for(int i = 0; i<GRIDNB; i++)
-		if(Aleatoire.randomColumn())
+		if(Aleatoire.randomBoolean())
 		{
 			Vehicule v = Aleatoire.createRandomVehicle(NBCARS);
 			carList.add(v);

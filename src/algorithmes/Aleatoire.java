@@ -17,7 +17,7 @@ public class Aleatoire {
 		return Character.toString(c);
 	}
 
-	public static boolean randomColumn() {
+	public static boolean randomBoolean() {
 		Random r = new Random();
 		boolean i = r.nextBoolean();
 		return i;
