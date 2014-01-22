@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 public class MyKeyListener implements KeyListener {
 
     
-    private PanelActionManager actions;
+    protected PanelActionManager actions;
     public MyKeyListener (PanelActionManager action){
         actions = action;
     }
