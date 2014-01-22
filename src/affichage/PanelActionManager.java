@@ -20,12 +20,26 @@ public class PanelActionManager {
         
         while (it.hasNext()) {
                Vehicule s = it.next();
-               if(c==s.getLettre().toLowerCase().charAt(0)) {
+               if(c==s.getLettre().toLowerCase().charAt(0)&&s.getTimer().isRunning()) {
                        s.stop();
                }
         }
        
     }
+    
+    public void startCarsWithLetter (char c){
+        ArrayList<Vehicule> carList =pC.getCarList();
+        Iterator<Vehicule> it = carList.iterator();
+        
+        while (it.hasNext()) {
+               Vehicule s = it.next();
+               if(c==s.getLettre().toLowerCase().charAt(0)&& ! s.getTimer().isRunning()) {
+                       s.start();
+               }
+        }
+       
+    }
+    
     
     public void detruire(Vehicule v) {
         v.destroyTimer();
