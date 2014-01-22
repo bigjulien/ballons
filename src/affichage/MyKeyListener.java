@@ -3,7 +3,6 @@ package affichage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import vehicules.Vehicule;
 
 
 public class MyKeyListener implements KeyListener {

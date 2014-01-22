@@ -30,24 +30,20 @@ public class PanelExplosion extends PanelGenerique{
 	public void actionPerformed(ActionEvent e) {
 	        
 	for (int i=0; i<carList.size();i++){
-	     if(carList.get(i) instanceof Vehicule)
+		 
+		 if(carList.get(i) instanceof Vehicule)
 	     {
-	          Vehicule v = (Vehicule)carList.get(i);
+			 Vehicule v = (Vehicule)carList.get(i);
 	          if(v.outOfWindow())
 	          {
-	        	    if(Aleatoire.randomBoolean())
-	        	    {
-	        	    	pam.swapPanelIby(i, Aleatoire.createRandomVehicle(5));
-	        	    }
-	        	    else
-	        	    {
-	        	    	
-	        	    }
+	        	    
+	        	    	pam.replaceVehiculebyPanel(i);
+	        	    
 	          }
 	     }
-	     else
+	     else if(Aleatoire.randomBoolean())
 	     {
-	    	 
+	    	 pam.replacePanelbyVehicle(i,  Aleatoire.createRandomVehicle(5));
 	     }
 	 }
      }
