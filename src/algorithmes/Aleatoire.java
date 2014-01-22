@@ -29,10 +29,10 @@ public class Aleatoire {
 		return i;
 	}
 
-	public static Vehicule createRandomVehicle() {
+	public static Vehicule createRandomVehicle(int nbcars) {
 		String lettre = Aleatoire.randomLetter();
 		Vehicule v;
-		switch (Aleatoire.RandomCar(5)) {
+		switch (Aleatoire.RandomCar(nbcars)) {
 		case 0:
 			v = new VoitureRouge(lettre);
 			break;
@@ -51,8 +51,12 @@ public class Aleatoire {
 		case 5:
 			v = new GrosCamion(lettre);
 			break;
+		default:
+			v = new GrosCamion(lettre);
+			break;
 		}
-		v = new Camion(lettre);
+		
+			
 		return v;
 	}
 }
