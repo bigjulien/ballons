@@ -26,6 +26,7 @@ public class MyKeyListener implements KeyListener {
     
     @Override
     public void keyTyped(KeyEvent arg0) {
+        System.out.println(arg0.getKeyChar());
             String c = Character.toString(arg0.getKeyChar());
             actions.stopCarsWithLetter(c);
                    

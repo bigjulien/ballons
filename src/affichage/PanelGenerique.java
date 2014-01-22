@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import algorithmes.Aleatoire;
 import vehicules.*;
@@ -22,6 +23,7 @@ public class PanelGenerique extends JPanel implements ActionListener{
     private ArrayList<JPanel> carList = new ArrayList<JPanel>();
     private PanelActionManager pam;
     
+    private Timer timer;
     public PanelGenerique(){
         setLayout(new GridLayout(1,10));
         instanciateArray();
@@ -32,7 +34,8 @@ public class PanelGenerique extends JPanel implements ActionListener{
         KeyListener listener = new MyKeyListener(pam);
         addKeyListener(listener);
         setFocusable(true);
-        
+        timer = new Timer(30,this);
+        timer.start();
     }
     public  ArrayList<JPanel> getCarList(){
         return carList;

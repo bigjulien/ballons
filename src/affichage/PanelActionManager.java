@@ -24,15 +24,18 @@ public PanelActionManager(PanelGenerique pC) {
  * @return
  */
 public ArrayList<Integer> getCarsWithLetter(String c){
-    ArrayList<Integer> indices= new ArrayList();
+    ArrayList<Integer> indices= new ArrayList<Integer>();
     ArrayList<JPanel> carList = pC.getCarList();
-    Iterator<JPanel> it = carList.iterator();
+    System.out.println("String c: "+c);
 
     for (int i=0; i<carList.size();i++){
         if (carList.get(i) instanceof Vehicule){
             Vehicule v = (Vehicule)carList.get(i);
-            if (v.getLettre().equals(c))
-                indices.add(i);   
+            System.out.println("lettre vehicule"+v.getLettre());
+            if (v.getLettre().toLowerCase().equals(c)){
+                indices.add(i);
+                System.out.println(i);
+            }
         }
     }
     return indices;
@@ -42,7 +45,6 @@ public ArrayList<Integer> getCarsWithLetter(String c){
 public void stopCarsWithLetter(String c) {
     ArrayList<Integer> indices = getCarsWithLetter(c);
     Iterator<Integer> it = indices.iterator();
-
     while (it.hasNext()) {
         int i = it.next();
         Vehicule v = (Vehicule) pC.getCarList().get(i);
@@ -53,8 +55,17 @@ public void stopCarsWithLetter(String c) {
 
 }
 
-public void startCarsWithLetter(char c) {
-    
+public void startCarsWithLetter(String c) {
+    ArrayList<Integer> indices = getCarsWithLetter(c);
+    Iterator<Integer> it = indices.iterator();
+
+    while (it.hasNext()) {
+        int i = it.next();
+        Vehicule v = (Vehicule) pC.getCarList().get(i);
+        if (!v.getTimer().isRunning()) 
+                v.getTimer().start();
+        pC.getCarList().set(i,v);
+    }
 }
 
 public void detruire(JPanel jPanel) {
@@ -73,7 +84,6 @@ public void swapPanelIby(int i, Vehicule v) {
     pC.add(carList.get(i), i);
     if (carList.get(i) instanceof Vehicule){
         Vehicule vehicule = (Vehicule) carList.get(i);
-        vehicule.destroyTimer();
         vehicule.go();
     }
     
