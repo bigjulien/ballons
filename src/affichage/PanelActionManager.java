@@ -42,31 +42,28 @@ public ArrayList<Integer> getCarsWithLetter(String c){
     
 }
 
-public void stopCarsWithLetter(String c) {
+
+public void actionSurVoitureLettre(String c, String action) {
     ArrayList<Integer> indices = getCarsWithLetter(c);
     Iterator<Integer> it = indices.iterator();
     while (it.hasNext()) {
         int i = it.next();
         Vehicule v = (Vehicule) pC.getCarList().get(i);
-        if (v.getTimer().isRunning()) 
-                v.stop();
+        switch(action)
+        {
+        case "explose":
+            v.stop();
+        	v.explose();
+        case "start":
+        	v.go();   
+        case "stop":
+        	v.stop();
+        }       
         pC.getCarList().set(i,v);
     }
-
+	
 }
 
-public void startCarsWithLetter(String c) {
-    ArrayList<Integer> indices = getCarsWithLetter(c);
-    Iterator<Integer> it = indices.iterator();
-
-    while (it.hasNext()) {
-        int i = it.next();
-        Vehicule v = (Vehicule) pC.getCarList().get(i);
-        if (!v.getTimer().isRunning()) 
-                v.getTimer().start();
-        pC.getCarList().set(i,v);
-    }
-}
 
 public void detruire(JPanel jPanel) {
     if (jPanel instanceof Vehicule){
