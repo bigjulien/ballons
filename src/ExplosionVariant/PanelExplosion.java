@@ -1,13 +1,14 @@
 package ExplosionVariant;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
 
 import vehicules.Vehicule;
 import affichage.PanelGenerique;
 import algorithmes.Aleatoire;
 
 public class PanelExplosion extends PanelGenerique{
-
+	
 	/**
 	 * 
 	 */

@@ -100,7 +100,7 @@ public abstract class Vehicule extends JPanel implements ActionListener
 		public void explose()
 		{
 			setImage("voitures/explosion.png");
-			timer.stop();		
+			repaint();
 		}
 		
 		public boolean outOfWindow (){
