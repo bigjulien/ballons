@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.Timer;
+
 import vehicules.Vehicule;
 import affichage.PanelActionManager;
 import affichage.PanelGenerique;
@@ -14,15 +15,14 @@ public class PanelExplosion extends PanelGenerique{
 	private static final long serialVersionUID = 1L;
 	
     public PanelExplosion(){
-        setLayout(new GridLayout(1,10));
+        setLayout(new GridLayout(1,GRIDNB));
         instanciateArray();       
         generalStart();   
-        System.out.println(carList.toString());
         pam=new PanelActionManager(this);        
         KeyListenerExplosion listener = new KeyListenerExplosion(pam);
         addKeyListener(listener);
         setFocusable(true);
-        timer = new Timer(30,this);
+        timer = new Timer(VITESSEMIN,this);        
         timer.start();
     }
 	
@@ -36,15 +36,13 @@ public class PanelExplosion extends PanelGenerique{
 			 Vehicule v = (Vehicule)carList.get(i);
 	          if(v.outOfWindow())
 	          {
-	        	    
-	        	    	pam.replaceVehiculebyPanel(i);
-	        	    
-	          }
-	     }
-	     else if(Aleatoire.randomBoolean())
-	     {
-	    	 pam.replacePanelbyVehicle(i,  Aleatoire.createRandomVehicle(5));
-	     }
+	        	  	pam.swapPanelIby(i,  Aleatoire.createRandomVehicle(NBCARS));
+	          }	          
+	     } 
+		 else
+		 {
+			 pam.swapPanelIby(i,  Aleatoire.createRandomVehicle(NBCARS));
+		 }
 	 }
      }
 }

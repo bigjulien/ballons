@@ -81,11 +81,9 @@ public void swapPanelIby(int i, Vehicule v) {
     pC.remove(carList.get(i));
     carList.set(i, v);
     pC.add(carList.get(i), i);
-    if (carList.get(i) instanceof Vehicule){
-        Vehicule vehicule = (Vehicule) carList.get(i);
-        vehicule.go();
-    }
     
+    Vehicule vehicule = (Vehicule) carList.get(i);
+    vehicule.go();
     pC.invalidate();
     pC.validate();
 }
@@ -97,19 +95,6 @@ public void replaceVehiculebyPanel(int i)
     pC.remove(carList.get(i));
     carList.set(i, new JPanel());
     pC.add(carList.get(i), i);
-    pC.invalidate();
-    pC.validate();
-}
-
-public void replacePanelbyVehicle(int i, Vehicule v)
-{
-	ArrayList<JPanel> carList = pC.getCarList();
-    pC.remove(carList.get(i));
-    carList.set(i, v);
-    pC.add(carList.get(i), i);
-    
-    Vehicule vehicule = (Vehicule) carList.get(i);
-    vehicule.go();    
     pC.invalidate();
     pC.validate();
 }

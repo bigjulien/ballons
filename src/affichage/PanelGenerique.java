@@ -17,6 +17,7 @@ public class PanelGenerique extends JPanel implements ActionListener{
 	protected static final long serialVersionUID = 1L;
 	protected static final int GRIDNB=10;
 	protected static final int NBCARS=5;
+	protected static final int VITESSEMIN=5;
 	
 	protected ArrayList<JPanel> carList = new ArrayList<JPanel>();
 	protected PanelActionManager pam;
