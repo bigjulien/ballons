@@ -10,10 +10,10 @@ import vehicules.Vehicule;
 public class MyKeyListener implements KeyListener {
 
     private PanelCourse pC;
-    private PanelActionManager Actions;
-    public MyKeyListener (PanelCourse pC){
+    private PanelActionManager actions;
+    public MyKeyListener (PanelCourse pC,PanelActionManager action){
         this.pC=pC;
-        Actions = new PanelActionManager (pC);
+        actions = action;
     }
     
     @Override
@@ -31,7 +31,7 @@ public class MyKeyListener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent arg0) {
             char c = arg0.getKeyChar();
-            Actions.stopCarsWithLetter(c);
+            actions.stopCarsWithLetter(c);
                    
              
            

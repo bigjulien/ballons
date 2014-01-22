@@ -72,12 +72,25 @@ public abstract class Vehicule extends JPanel implements ActionListener
             timer = new Timer(vitesse, this);
 		}
 		
+		public void destroyTimer() {
+		    timer.stop();
+		    timer=null;
+		}
+		
 		public void go() {
 			timer.start();	
 		}
 		
 		public void stop(){
 		    timer.stop();
+		}
+		
+
+		public void slow(){
+		    timer.setDelay(timer.getDelay()+50);
+		}
+		public void unSlow(){
+		    timer.setDelay(timer.getDelay()-50);
 		}
 		
 		public Timer getTimer(){

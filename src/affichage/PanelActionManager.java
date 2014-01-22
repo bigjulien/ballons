@@ -20,20 +20,24 @@ public class PanelActionManager {
         
         while (it.hasNext()) {
                Vehicule s = it.next();
-               if(c==s.getLettre().toLowerCase().charAt(0))
-                   if (s.getTimer().isRunning())
+               if(c==s.getLettre().toLowerCase().charAt(0)) {
                        s.stop();
-                   else
-                       s.restart();
+               }
         }
        
+    }
+    
+    public void detruire(Vehicule v) {
+        v.destroyTimer();
+        v=null;
     }
     
     
     public void swapPanelIby (int i,Vehicule v){
         ArrayList<Vehicule> carList =pC.getCarList();
+        detruire(carList.get(i));
         pC.remove(carList.get(i));
-        carList.set(i, new VoitureBlanche("A"));
+        carList.set(i, v);
         pC.add(carList.get(i),i);
         carList.get(i).go();
         pC.invalidate();

@@ -25,14 +25,15 @@ public class PanelCourse extends JPanel implements ActionListener {
 
     private ArrayList<Vehicule> carList = new ArrayList();
     private Timer timer;
+    private PanelActionManager pam;
     public PanelCourse (){
         setLayout(new GridLayout(1,10));
         instanciateArray();
         instanciatePanels();
         generalStart();
      
-        
-        KeyListener listener = new MyKeyListener(this);
+        pam=new PanelActionManager(this);
+        KeyListener listener = new MyKeyListener(this,pam);
         addKeyListener(listener);
         setFocusable(true);
         
@@ -82,13 +83,7 @@ public class PanelCourse extends JPanel implements ActionListener {
         for (int i=0; i<carList.size();i++){
                if(carList.get(i).outOfWindow()){
                    System.out.println("vehicule sorti");
-                   this.remove(carList.get(i));
-                   carList.set(i, new VoitureBlanche("A"));
-                   this.add(carList.get(i),i);
-                   carList.get(i).go();
-                   this.invalidate();
-                   this.validate();
-                   repaint();
+                   pam.swapPanelIby(i, Aleatoire.createRandomVehicle(5));
                }
          
         }
