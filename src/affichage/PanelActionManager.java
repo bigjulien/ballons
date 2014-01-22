@@ -26,7 +26,7 @@ public PanelActionManager(PanelGenerique pC) {
 public ArrayList<Integer> getCarsWithLetter(String c){
     ArrayList<Integer> indices= new ArrayList<Integer>();
     ArrayList<JPanel> carList = pC.getCarList();
-    System.out.println("String c: "+c);
+
 
     for (int i=0; i<carList.size();i++){
         if (carList.get(i) instanceof Vehicule){

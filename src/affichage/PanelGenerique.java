@@ -25,17 +25,7 @@ public class PanelGenerique extends JPanel implements ActionListener{
     
 	protected Timer timer;
     public PanelGenerique(){
-        setLayout(new GridLayout(1,10));
-        instanciateArray();
-        instanciatePanels();
-        generalStart();     
-        pam=new PanelActionManager(this);
         
-        KeyListener listener = new MyKeyListener(pam);
-        addKeyListener(listener);
-        setFocusable(true);
-        timer = new Timer(30,this);
-        timer.start();
     }
     public  ArrayList<JPanel> getCarList(){
         return carList;
