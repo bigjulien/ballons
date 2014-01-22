@@ -65,6 +65,18 @@ public class PanelGenerique extends JPanel implements ActionListener{
                }
         }
     }
+    public void generalStop(){
+        Iterator<JPanel> it = carList.iterator();
+        
+        while (it.hasNext()) {
+               JPanel s = it.next();
+               if(s instanceof Vehicule)
+               {
+                   Vehicule t = (Vehicule)s;
+                   t.stop();
+               }
+        }
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
