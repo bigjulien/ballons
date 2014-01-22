@@ -2,15 +2,13 @@ package affichage;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import vehicules.Vehicule;
-import vehicules.VoitureBlanche;
 
 public class PanelActionManager {
 
-    PanelCourse pC;
+    PanelGenerique pC;
     
-    public PanelActionManager (PanelCourse pC){
+    public PanelActionManager (PanelGenerique pC){
         this.pC=pC;
     }
     

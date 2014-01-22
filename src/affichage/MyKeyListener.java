@@ -2,17 +2,13 @@ package affichage;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Iterator;
 
-import vehicules.Vehicule;
 
 public class MyKeyListener implements KeyListener {
 
-    private PanelCourse pC;
+    
     private PanelActionManager actions;
-    public MyKeyListener (PanelCourse pC,PanelActionManager action){
-        this.pC=pC;
+    public MyKeyListener (PanelActionManager action){
         actions = action;
     }
     

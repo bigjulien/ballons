@@ -1,56 +1,93 @@
 package affichage;
 
+import java.awt.GridLayout;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
-import vehicules.Camion;
-import vehicules.GrosCamion;
-import vehicules.Vehicule;
-import vehicules.VoitureBlanche;
-import vehicules.VoitureJaune;
-import vehicules.VoitureRouge;
-import vehicules.VoitureVerte;
 import algorithmes.Aleatoire;
+import vehicules.*;
 
-public class PanelGenerique extends JPanel{
-	private ArrayList<Vehicule> carList = new ArrayList();
-    public  ArrayList<Vehicule> getCarList(){
+public class PanelGenerique extends JPanel implements ActionListener{
+
+
+	private static final long serialVersionUID = 1L;
+	private static final int GRIDNB=10;
+	private static final int NBCARS=5;
+	
+    private ArrayList<JPanel> carList = new ArrayList<JPanel>();
+    private PanelActionManager pam;
+    
+    public PanelGenerique(){
+        setLayout(new GridLayout(1,10));
+        instanciateArray();
+        instanciatePanels();
+        generalStart();     
+        pam=new PanelActionManager(this);
+        
+        KeyListener listener = new MyKeyListener(pam);
+        addKeyListener(listener);
+        setFocusable(true);
+        
+    }
+    public  ArrayList<JPanel> getCarList(){
         return carList;
     }
     
     public void instanciateArray (){
-        carList.add(new VoitureRouge(Aleatoire.randomLetter()));
-        carList.add(new GrosCamion(Aleatoire.randomLetter()));
-        carList.add(new Camion(Aleatoire.randomLetter()));
-        carList.add(new VoitureVerte(Aleatoire.randomLetter()));
-        carList.add(new VoitureJaune(Aleatoire.randomLetter()));
-        carList.add(new VoitureVerte(Aleatoire.randomLetter()));
-        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
-        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
-        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
-        carList.add(new VoitureRouge(Aleatoire.randomLetter()));
-        timer = new Timer(100,this);
-        timer.start();
+		for(int i = 0; i<GRIDNB; i++)
+		if(Aleatoire.randomColumn())
+		{
+			Vehicule v = Aleatoire.createRandomVehicle(NBCARS);
+			carList.add(v);
+			add(v);
+		}
+		else
+		{
+			Panel p=new Panel();
+			add(p);
+		}
     }
     
     public void instanciatePanels(){
-        Iterator<Vehicule> it = carList.iterator();
+        Iterator<JPanel> it = carList.iterator();
         
         while (it.hasNext()) {
-               Vehicule s = it.next();
+               JPanel s = it.next();
                add(s);
         }
     }
     public void generalStart(){
-        Iterator<Vehicule> it = carList.iterator();
+        Iterator<JPanel> it = carList.iterator();
         
         while (it.hasNext()) {
-               Vehicule s = it.next();
-               s.go();
+               JPanel s = it.next();
+               if(s instanceof Vehicule)
+               {
+            	   Vehicule t = (Vehicule)s;
+            	   t.go();
+               }
         }
     }
-
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        for (int i=0; i<carList.size();i++){
+               if(carList.get(i) instanceof Vehicule)
+               {
+            	   Vehicule v = (Vehicule)carList.get(i);
+            	   if(v.outOfWindow())
+            	   {
+            		   System.out.println("vehicule sorti");
+            		   pam.swapPanelIby(i, Aleatoire.createRandomVehicle(5));
+            	   }
+               }        
+        }
+    }
 }
