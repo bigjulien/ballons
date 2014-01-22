@@ -1,7 +1,6 @@
 package affichage;
 
 import java.awt.GridLayout;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
@@ -49,7 +48,8 @@ public class PanelGenerique extends JPanel implements ActionListener{
 		}
 		else
 		{
-			Panel p=new Panel();
+			JPanel p=new JPanel();
+			carList.add(p);
 			add(p);
 		}
     }
