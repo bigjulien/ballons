@@ -12,6 +12,7 @@ import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import algorithmes.Aleatoire;
 import vehicules.Camion;
 import vehicules.GrosCamion;
 import vehicules.Vehicule;
@@ -41,16 +42,16 @@ public class PanelCourse extends JPanel implements ActionListener {
     }
     
     public void instanciateArray (){
-        carList.add(new VoitureRouge(randomLetter()));
-        carList.add(new GrosCamion(randomLetter()));
-        carList.add(new Camion(randomLetter()));
-        carList.add(new VoitureVerte(randomLetter()));
-        carList.add(new VoitureJaune(randomLetter()));
-        carList.add(new VoitureVerte(randomLetter()));
-        carList.add(new VoitureBlanche(randomLetter()));
-        carList.add(new VoitureBlanche(randomLetter()));
-        carList.add(new VoitureBlanche(randomLetter()));
-        carList.add(new VoitureRouge(randomLetter()));
+        carList.add(new VoitureRouge(Aleatoire.randomLetter()));
+        carList.add(new GrosCamion(Aleatoire.randomLetter()));
+        carList.add(new Camion(Aleatoire.randomLetter()));
+        carList.add(new VoitureVerte(Aleatoire.randomLetter()));
+        carList.add(new VoitureJaune(Aleatoire.randomLetter()));
+        carList.add(new VoitureVerte(Aleatoire.randomLetter()));
+        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
+        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
+        carList.add(new VoitureBlanche(Aleatoire.randomLetter()));
+        carList.add(new VoitureRouge(Aleatoire.randomLetter()));
         timer = new Timer(100,this);
         timer.start();
     }
@@ -73,11 +74,7 @@ public class PanelCourse extends JPanel implements ActionListener {
     }
     
 
-    public String randomLetter(){
-        Random r = new Random();
-        char c = (char) (r.nextInt(26) + 'A');
-        return Character.toString(c);
-    }
+  
     
     @Override
     public void actionPerformed(ActionEvent e) {

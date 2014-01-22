@@ -1,16 +1,16 @@
-package Course;
+package affichage;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import affichage.PanelCourse;
 import vehicules.Vehicule;
+import vehicules.VoitureBlanche;
 
-public class PanelCourseActionManager {
+public class PanelActionManager {
 
     PanelCourse pC;
     
-    public PanelCourseActionManager (PanelCourse pC){
+    public PanelActionManager (PanelCourse pC){
         this.pC=pC;
     }
     
@@ -27,6 +27,17 @@ public class PanelCourseActionManager {
                        s.restart();
         }
        
+    }
+    
+    
+    public void swapPanelIby (int i,Vehicule v){
+        ArrayList<Vehicule> carList =pC.getCarList();
+        pC.remove(carList.get(i));
+        carList.set(i, new VoitureBlanche("A"));
+        pC.add(carList.get(i),i);
+        carList.get(i).go();
+        pC.invalidate();
+        pC.validate();
     }
     
     

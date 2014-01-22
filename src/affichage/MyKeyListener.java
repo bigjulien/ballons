@@ -5,16 +5,15 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Course.PanelCourseActionManager;
 import vehicules.Vehicule;
 
 public class MyKeyListener implements KeyListener {
 
     private PanelCourse pC;
-    private PanelCourseActionManager Actions;
+    private PanelActionManager Actions;
     public MyKeyListener (PanelCourse pC){
         this.pC=pC;
-        Actions = new PanelCourseActionManager (pC);
+        Actions = new PanelActionManager (pC);
     }
     
     @Override
