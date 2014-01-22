@@ -20,9 +20,8 @@ public class PanelActionManager {
         
         while (it.hasNext()) {
                Vehicule s = it.next();
-               if(c==s.getLettre().toLowerCase().charAt(0)&&s.getTimer().isRunning()) {
+               if(c==s.getLettre().toLowerCase().charAt(0)&&s.getTimer().isRunning())
                        s.stop();
-               }
         }
        
     }
@@ -33,9 +32,9 @@ public class PanelActionManager {
         
         while (it.hasNext()) {
                Vehicule s = it.next();
-               if(c==s.getLettre().toLowerCase().charAt(0)&& ! s.getTimer().isRunning()) {
-                       s.start();
-               }
+               if(c==s.getLettre().toLowerCase().charAt(0)&& ! s.getTimer().isRunning()) 
+                       s.getTimer().start();
+
         }
        
     }

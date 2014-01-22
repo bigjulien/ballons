@@ -33,6 +33,7 @@ public class PanelCourse extends JPanel implements ActionListener {
         generalStart();
      
         pam=new PanelActionManager(this);
+        // YO LO
         KeyListener listener = new MyKeyListener(this,pam);
         addKeyListener(listener);
         setFocusable(true);
