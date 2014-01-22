@@ -2,11 +2,9 @@ package ExplosionVariant;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.Timer;
 import vehicules.Vehicule;
-import affichage.MyKeyListener;
 import affichage.PanelActionManager;
 import affichage.PanelGenerique;
 import algorithmes.Aleatoire;
@@ -18,9 +16,10 @@ public class PanelExplosion extends PanelGenerique{
     public PanelExplosion(){
         setLayout(new GridLayout(1,10));
         instanciateArray();       
-        generalStart();     
+        generalStart();   
+        System.out.println(carList.toString());
         pam=new PanelActionManager(this);        
-        KeyListener listener = new MyKeyListener(pam);
+        KeyListenerExplosion listener = new KeyListenerExplosion(pam);
         addKeyListener(listener);
         setFocusable(true);
         timer = new Timer(30,this);
@@ -35,11 +34,21 @@ public class PanelExplosion extends PanelGenerique{
 	     {
 	          Vehicule v = (Vehicule)carList.get(i);
 	          if(v.outOfWindow())
-	          {           		   
-	            	pam.swapPanelIby(i, Aleatoire.createRandomVehicle(5));
-	            	
+	          {
+	        	    if(Aleatoire.randomBoolean())
+	        	    {
+	        	    	pam.swapPanelIby(i, Aleatoire.createRandomVehicle(5));
+	        	    }
+	        	    else
+	        	    {
+	        	    	
+	        	    }
 	          }
-	     }        
+	     }
+	     else
+	     {
+	    	 
+	     }
 	 }
      }
 }

@@ -3,6 +3,8 @@ package affichage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import vehicules.Vehicule;
+
 
 public class MyKeyListener implements KeyListener {
 
@@ -29,7 +31,7 @@ public class MyKeyListener implements KeyListener {
         System.out.println(arg0.getKeyChar());
             String c = Character.toString(arg0.getKeyChar());
             actions.actionSurVoitureLettre(c,"stop");      
-             
+            
            
         }
     
