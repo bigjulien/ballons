@@ -16,14 +16,14 @@ import vehicules.*;
 public class PanelGenerique extends JPanel implements ActionListener{
 
 
-	private static final long serialVersionUID = 1L;
-	private static final int GRIDNB=10;
-	private static final int NBCARS=5;
+	protected static final long serialVersionUID = 1L;
+	protected static final int GRIDNB=10;
+	protected static final int NBCARS=5;
 	
-    private ArrayList<JPanel> carList = new ArrayList<JPanel>();
-    private PanelActionManager pam;
+	protected ArrayList<JPanel> carList = new ArrayList<JPanel>();
+	protected PanelActionManager pam;
     
-    private Timer timer;
+	protected Timer timer;
     public PanelGenerique(){
         setLayout(new GridLayout(1,10));
         instanciateArray();
