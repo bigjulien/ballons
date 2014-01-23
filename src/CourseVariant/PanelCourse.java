@@ -58,11 +58,14 @@ public void actionPerformed(ActionEvent e) {
                 
                 if(v.equals(carList.get(0))){
                     System.out.println("vous avez gagné");
-                    generalStop();
+                    
                 }
                 else{
                     System.out.println("vous avez perdu");
+                    
                 }
+                generalStop();
+                timer.stop();
             }
         }
     }
